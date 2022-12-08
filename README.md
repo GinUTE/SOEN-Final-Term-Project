@@ -1,7 +1,7 @@
 # SOEN Final Term Project
-This project aims to further our understanding of software development and serves as a final term submission to Software Engineering course at Ho Chi Minh University of Technology and Education.
+This project aims to further our understanding of software development and serves as a final term submission to the Software Engineering course during the first semester of our third academic year at Ho Chi Minh University of Technology and Education.
 
-Techniques and design patterns are bestowed upon us by Professor Tho, Mai Anh during the first semester of our third academic year.
+Instructor: Mrs. Mai Anh Thơ, Master Academic Degree, contact email: thoma@hcmute.edu.vn
 
 ## Movie Ticket Booking System
 
