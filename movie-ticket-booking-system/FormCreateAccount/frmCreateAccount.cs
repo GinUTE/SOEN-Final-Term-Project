@@ -48,19 +48,19 @@ namespace movie_ticket_booking_system.FormCreateAccount
 
         private bool IsAllFilledIn()
         {
-            var result = true;
+            var isFilled = true;
             foreach (var control in Controls)
                 switch (control)
                 {
                     case TextBox txt:
-                        result &= !string.IsNullOrEmpty(txt.Text);
+                        isFilled &= !string.IsNullOrEmpty(txt.Text);
                         break;
                     case ComboBox cmb:
-                        result &= !string.IsNullOrEmpty(cmb.Text);
+                        isFilled &= !string.IsNullOrEmpty(cmb.Text);
                         break;
                 }
 
-            return result;
+            return isFilled;
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)

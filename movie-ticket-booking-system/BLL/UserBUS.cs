@@ -32,7 +32,8 @@ namespace movie_ticket_booking_system.BLL
 
         public bool IsAdmin(string phone)
         {
-            return _userDAO.GetUserRole(phone).Rows.Cast<DataRow>().Any(row => row["role"].ToString() == "admin");
+            return _userDAO.GetUserRole(phone).Rows.Cast<object>()
+                .Any(row => (row as DataRow)?["role"].ToString() == "admin");
         }
 
         public void CreateUserAccount(User user, string password)
