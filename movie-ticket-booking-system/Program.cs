@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using movie_ticket_booking_system.FormDashboard;
-using movie_ticket_booking_system.FormUser;
 
 namespace movie_ticket_booking_system
 {
@@ -15,10 +14,7 @@ namespace movie_ticket_booking_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            using (var frmUser = new frmUser())
-            {
-                Application.Run(new frmDashboard(frmUser.ShowDialog() == DialogResult.Yes));
-            }
+            Application.Run(new frmDashboard());
         }
     }
 }
