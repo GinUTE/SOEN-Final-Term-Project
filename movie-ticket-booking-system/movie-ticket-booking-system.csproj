@@ -78,11 +78,11 @@
     <Compile Include="FormLogIn\frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormScreening\frmScreening.cs">
+    <Compile Include="FormMovie\frmMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormScreening\frmScreening.Designer.cs">
-      <DependentUpon>frmScreening.cs</DependentUpon>
+    <Compile Include="FormMovie\frmMovie.Designer.cs">
+      <DependentUpon>frmMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUser\frmUser.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
       <DependentUpon>frmLogIn.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormScreening\frmScreening.resx">
-      <DependentUpon>frmScreening.cs</DependentUpon>
+    <EmbeddedResource Include="FormMovie\frmMovie.resx">
+      <DependentUpon>frmMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
