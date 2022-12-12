@@ -29,59 +29,148 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pnlMoviesSubmenu = new System.Windows.Forms.Panel();
+            this.btnComingSoon = new System.Windows.Forms.Button();
+            this.btnNowShowing = new System.Windows.Forms.Button();
+            this.btnMovies = new System.Windows.Forms.Button();
             this.pnlChildForm = new System.Windows.Forms.Panel();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.btnScreening = new System.Windows.Forms.Button();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlMoviesSubmenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
-            this.pnlSidebar.Controls.Add(this.btnScreening);
-            this.pnlSidebar.Controls.Add(this.picLogo);
+            this.pnlSidebar.Controls.Add(this.btnAdmin);
+            this.pnlSidebar.Controls.Add(this.btnLogIn);
+            this.pnlSidebar.Controls.Add(this.pnlMoviesSubmenu);
+            this.pnlSidebar.Controls.Add(this.btnMovies);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(200, 900);
             this.pnlSidebar.TabIndex = 0;
             // 
+            // pnlMoviesSubmenu
+            // 
+            this.pnlMoviesSubmenu.Controls.Add(this.btnComingSoon);
+            this.pnlMoviesSubmenu.Controls.Add(this.btnNowShowing);
+            this.pnlMoviesSubmenu.Location = new System.Drawing.Point(0, 250);
+            this.pnlMoviesSubmenu.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlMoviesSubmenu.Name = "pnlMoviesSubmenu";
+            this.pnlMoviesSubmenu.Size = new System.Drawing.Size(200, 100);
+            this.pnlMoviesSubmenu.TabIndex = 2;
+            // 
+            // btnComingSoon
+            // 
+            this.btnComingSoon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnComingSoon.FlatAppearance.BorderSize = 0;
+            this.btnComingSoon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComingSoon.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComingSoon.ForeColor = System.Drawing.Color.White;
+            this.btnComingSoon.Location = new System.Drawing.Point(0, 50);
+            this.btnComingSoon.Margin = new System.Windows.Forms.Padding(0);
+            this.btnComingSoon.Name = "btnComingSoon";
+            this.btnComingSoon.Size = new System.Drawing.Size(200, 50);
+            this.btnComingSoon.TabIndex = 1;
+            this.btnComingSoon.Text = "Coming Soon";
+            this.btnComingSoon.UseVisualStyleBackColor = true;
+            this.btnComingSoon.Click += new System.EventHandler(this.btnComingSoon_Click);
+            // 
+            // btnNowShowing
+            // 
+            this.btnNowShowing.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNowShowing.FlatAppearance.BorderSize = 0;
+            this.btnNowShowing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNowShowing.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNowShowing.ForeColor = System.Drawing.Color.White;
+            this.btnNowShowing.Location = new System.Drawing.Point(0, 0);
+            this.btnNowShowing.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNowShowing.Name = "btnNowShowing";
+            this.btnNowShowing.Size = new System.Drawing.Size(200, 50);
+            this.btnNowShowing.TabIndex = 0;
+            this.btnNowShowing.Text = "Now Showing";
+            this.btnNowShowing.UseVisualStyleBackColor = true;
+            this.btnNowShowing.Click += new System.EventHandler(this.btnNowShowing_Click);
+            // 
+            // btnMovies
+            // 
+            this.btnMovies.FlatAppearance.BorderSize = 0;
+            this.btnMovies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovies.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovies.ForeColor = System.Drawing.Color.White;
+            this.btnMovies.Location = new System.Drawing.Point(0, 200);
+            this.btnMovies.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMovies.Name = "btnMovies";
+            this.btnMovies.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnMovies.Size = new System.Drawing.Size(200, 50);
+            this.btnMovies.TabIndex = 1;
+            this.btnMovies.Text = "Movies";
+            this.btnMovies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMovies.UseVisualStyleBackColor = true;
+            this.btnMovies.Click += new System.EventHandler(this.btnMovies_Click);
+            // 
             // pnlChildForm
             // 
             this.pnlChildForm.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlChildForm.Location = new System.Drawing.Point(200, 0);
-            this.pnlChildForm.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlChildForm.Location = new System.Drawing.Point(200, 80);
+            this.pnlChildForm.Margin = new System.Windows.Forms.Padding(0);
             this.pnlChildForm.Name = "pnlChildForm";
-            this.pnlChildForm.Size = new System.Drawing.Size(1500, 900);
+            this.pnlChildForm.Size = new System.Drawing.Size(1500, 820);
             this.pnlChildForm.TabIndex = 1;
             // 
-            // picLogo
+            // lblHeader
             // 
-            this.picLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
-            this.picLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picLogo.Location = new System.Drawing.Point(0, 0);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(200, 200);
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
+            this.lblHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
+            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHeader.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.White;
+            this.lblHeader.Location = new System.Drawing.Point(200, 0);
+            this.lblHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(1500, 80);
+            this.lblHeader.TabIndex = 2;
+            this.lblHeader.Text = "HEADER";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnScreening
+            // btnLogIn
             // 
-            this.btnScreening.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnScreening.FlatAppearance.BorderSize = 0;
-            this.btnScreening.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScreening.ForeColor = System.Drawing.Color.White;
-            this.btnScreening.Location = new System.Drawing.Point(0, 200);
-            this.btnScreening.Name = "btnScreening";
-            this.btnScreening.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnScreening.Size = new System.Drawing.Size(200, 50);
-            this.btnScreening.TabIndex = 1;
-            this.btnScreening.Text = "Screening";
-            this.btnScreening.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScreening.UseVisualStyleBackColor = true;
+            this.btnLogIn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogIn.FlatAppearance.BorderSize = 0;
+            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogIn.ForeColor = System.Drawing.Color.White;
+            this.btnLogIn.Location = new System.Drawing.Point(0, 850);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLogIn.Size = new System.Drawing.Size(200, 50);
+            this.btnLogIn.TabIndex = 2;
+            this.btnLogIn.Text = "Log In";
+            this.btnLogIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.FlatAppearance.BorderSize = 0;
+            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmin.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.Location = new System.Drawing.Point(0, 350);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAdmin.Size = new System.Drawing.Size(200, 50);
+            this.btnAdmin.TabIndex = 3;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdmin.UseVisualStyleBackColor = true;
             // 
             // frmDashboard
             // 
@@ -89,16 +178,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1700, 900);
+            this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pnlChildForm);
             this.Controls.Add(this.pnlSidebar);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.pnlSidebar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.pnlMoviesSubmenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -107,7 +197,12 @@
 
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Panel pnlChildForm;
-        private System.Windows.Forms.Button btnScreening;
-        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Button btnMovies;
+        private System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Panel pnlMoviesSubmenu;
+        private System.Windows.Forms.Button btnComingSoon;
+        private System.Windows.Forms.Button btnNowShowing;
+        private System.Windows.Forms.Button btnLogIn;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }
