@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\MovieBUS.cs" />
+    <Compile Include="BLL\ScreeningBUS.cs" />
     <Compile Include="BLL\UserBUS.cs" />
     <Compile Include="CustomControls\CustomTextBox.cs">
       <SubType>UserControl</SubType>
@@ -50,8 +51,15 @@
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\MovieDAO.cs" />
+    <Compile Include="DAL\ScreeningDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
     <Compile Include="DL\DbConnection.cs" />
+    <Compile Include="FormBookTicket\frmBookTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookTicket\frmBookTicket.Designer.cs">
+      <DependentUpon>frmBookTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateAccount\frmCreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +78,11 @@
     <Compile Include="FormLogIn\frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNowShowing\frmNowShowing.cs">
+    <Compile Include="FormScreening\frmScreening.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNowShowing\frmNowShowing.Designer.cs">
-      <DependentUpon>frmNowShowing.cs</DependentUpon>
+    <Compile Include="FormScreening\frmScreening.Designer.cs">
+      <DependentUpon>frmScreening.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUser\frmUser.cs">
       <SubType>Form</SubType>
@@ -88,6 +96,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBookTicket\frmBookTicket.resx">
+      <DependentUpon>frmBookTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateAccount\frmCreateAccount.resx">
       <DependentUpon>frmCreateAccount.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -100,8 +111,8 @@
       <DependentUpon>frmLogIn.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNowShowing\frmNowShowing.resx">
-      <DependentUpon>frmNowShowing.cs</DependentUpon>
+    <EmbeddedResource Include="FormScreening\frmScreening.resx">
+      <DependentUpon>frmScreening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
