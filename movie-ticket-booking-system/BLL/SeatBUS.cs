@@ -49,5 +49,10 @@ namespace movie_ticket_booking_system.BLL
             _seatDAO.AddReservation(phone, screeningId);
             foreach (var seat in selectedSeat) _seatDAO.AddReservedSeat(seat);
         }
+
+        public int CalculateTotalTicketPrice(string phone, string screeningId)
+        {
+            return Convert.ToInt32(_seatDAO.CalculateTotalTicketPrice(phone, screeningId));
+        }
     }
 }

@@ -47,5 +47,19 @@ namespace movie_ticket_booking_system.DAL
             };
             _dbConnection.ExecuteNonQuery("usp_AddReservedSeat", paras, CommandType.StoredProcedure);
         }
+
+        public object CalculateTotalTicketPrice(string phone, string screeningId)
+        {
+            var paras = new SqlParameter[2];
+            paras[0] = new SqlParameter("@phone", SqlDbType.VarChar)
+            {
+                Value = phone
+            };
+            paras[1] = new SqlParameter("@screening_id", SqlDbType.Int)
+            {
+                Value = Convert.ToInt16(screeningId)
+            };
+            return _dbConnection.ExecuteScalar("usp_CalculateTotalTicketPrice", paras, CommandType.StoredProcedure);
+        }
     }
 }

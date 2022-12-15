@@ -206,8 +206,9 @@ namespace movie_ticket_booking_system.FormBookTicket
             try
             {
                 _seatBUS.AddReservation(_loggedInUser.Phone, _currentScreeningId, _selectedSeat);
+                var totalPrice = _seatBUS.CalculateTotalTicketPrice(_loggedInUser.Phone, _currentScreeningId);
+                Messenger.Notification("Seats reserved!\nTotal cost: " + totalPrice);
                 AddSeatByScreeningId();
-                Messenger.Notification("Seats reserved!");
             }
             catch (SqlException ex)
             {

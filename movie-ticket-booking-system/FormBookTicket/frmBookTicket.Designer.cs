@@ -38,6 +38,8 @@ namespace movie_ticket_booking_system.FormBookTicket
             this.tlpSeat = new System.Windows.Forms.TableLayoutPanel();
             this.pnlScreeningInfo = new System.Windows.Forms.Panel();
             this.btnBook = new System.Windows.Forms.Button();
+            this.lblNormalSeat = new System.Windows.Forms.Label();
+            this.lblVipSeat = new System.Windows.Forms.Label();
             this.pnlShowtime.SuspendLayout();
             this.pnlScreeningInfo.SuspendLayout();
             this.SuspendLayout();
@@ -125,6 +127,8 @@ namespace movie_ticket_booking_system.FormBookTicket
             // 
             // pnlScreeningInfo
             // 
+            this.pnlScreeningInfo.Controls.Add(this.lblVipSeat);
+            this.pnlScreeningInfo.Controls.Add(this.lblNormalSeat);
             this.pnlScreeningInfo.Controls.Add(this.btnBook);
             this.pnlScreeningInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlScreeningInfo.Location = new System.Drawing.Point(0, 483);
@@ -138,12 +142,37 @@ namespace movie_ticket_booking_system.FormBookTicket
             // 
             this.btnBook.AutoSize = true;
             this.btnBook.Location = new System.Drawing.Point(795, 25);
+            this.btnBook.Margin = new System.Windows.Forms.Padding(0);
             this.btnBook.Name = "btnBook";
             this.btnBook.Size = new System.Drawing.Size(75, 33);
             this.btnBook.TabIndex = 0;
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            // 
+            // lblNormalSeat
+            // 
+            this.lblNormalSeat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNormalSeat.ForeColor = System.Drawing.Color.Green;
+            this.lblNormalSeat.Location = new System.Drawing.Point(9, 23);
+            this.lblNormalSeat.Margin = new System.Windows.Forms.Padding(0);
+            this.lblNormalSeat.Name = "lblNormalSeat";
+            this.lblNormalSeat.Size = new System.Drawing.Size(106, 35);
+            this.lblNormalSeat.TabIndex = 1;
+            this.lblNormalSeat.Text = "Ghế thường";
+            this.lblNormalSeat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblVipSeat
+            // 
+            this.lblVipSeat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVipSeat.ForeColor = System.Drawing.Color.Red;
+            this.lblVipSeat.Location = new System.Drawing.Point(115, 23);
+            this.lblVipSeat.Margin = new System.Windows.Forms.Padding(0);
+            this.lblVipSeat.Name = "lblVipSeat";
+            this.lblVipSeat.Size = new System.Drawing.Size(106, 35);
+            this.lblVipSeat.TabIndex = 2;
+            this.lblVipSeat.Text = "Ghế VIP";
+            this.lblVipSeat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmBookTicket
             // 
@@ -175,5 +204,7 @@ namespace movie_ticket_booking_system.FormBookTicket
         private TableLayoutPanel tlpSeat;
         private Panel pnlScreeningInfo;
         private Button btnBook;
+        private Label lblVipSeat;
+        private Label lblNormalSeat;
     }
 }

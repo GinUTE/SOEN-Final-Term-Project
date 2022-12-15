@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using movie_ticket_booking_system.FormMovie;
 using movie_ticket_booking_system.FormUser;
+using movie_ticket_booking_system.FormYourTicket;
 using movie_ticket_booking_system.Models;
 
 namespace movie_ticket_booking_system.FormDashboard
@@ -9,6 +10,7 @@ namespace movie_ticket_booking_system.FormDashboard
     public partial class frmDashboard : Form
     {
         private Form _activeForm;
+        private User _loggedInUser;
 
         public frmDashboard()
         {
@@ -18,8 +20,6 @@ namespace movie_ticket_booking_system.FormDashboard
             btnUser.Visible = pnlUserSubmenu.Visible = false;
             btnNowShowing_Click(new object(), EventArgs.Empty);
         }
-
-        public User LoggedInUser { get; set; }
 
         public void LoadChildForm(Form childForm)
         {
@@ -51,6 +51,13 @@ namespace movie_ticket_booking_system.FormDashboard
             pnlUserSubmenu.Visible = !pnlUserSubmenu.Visible;
         }
 
+        private void btnMyTicket_Click(object sender, EventArgs e)
+        {
+            if (lblHeader.Text == btnMyTicket.Text.ToUpper()) return;
+            lblHeader.Text = btnMyTicket.Text.ToUpper();
+            LoadChildForm(new frmMyTicket(_loggedInUser.Phone));
+        }
+
         private void btnNowShowing_Click(object sender, EventArgs e)
         {
             if (lblHeader.Text == btnNowShowing.Text.ToUpper()) return;
@@ -73,7 +80,7 @@ namespace movie_ticket_booking_system.FormDashboard
                 if (dialogResult != DialogResult.Yes && dialogResult != DialogResult.OK) return;
                 btnUser.Visible = pnlUserSubmenu.Visible = true;
                 btnAdmin.Visible = pnlAdminSubmenu.Visible = dialogResult == DialogResult.Yes;
-                ((frmMovie)_activeForm).LoggedInUser = frmUser.LoggedInUser;
+                _loggedInUser = ((frmMovie)_activeForm).LoggedInUser = frmUser.LoggedInUser;
                 btnLogIn.Visible = false;
             }
         }

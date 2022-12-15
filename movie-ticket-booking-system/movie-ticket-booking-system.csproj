@@ -44,6 +44,7 @@
     <Compile Include="BLL\MovieBUS.cs" />
     <Compile Include="BLL\ScreeningBUS.cs" />
     <Compile Include="BLL\SeatBUS.cs" />
+    <Compile Include="BLL\TicketBUS.cs" />
     <Compile Include="BLL\UserBUS.cs" />
     <Compile Include="CustomControls\CustomTextBox.cs">
       <SubType>UserControl</SubType>
@@ -54,8 +55,15 @@
     <Compile Include="DAL\MovieDAO.cs" />
     <Compile Include="DAL\ScreeningDAO.cs" />
     <Compile Include="DAL\SeatDAO.cs" />
+    <Compile Include="DAL\TicketDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
     <Compile Include="DL\DbConnection.cs" />
+    <Compile Include="FormAddScreening\frmAddScreening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddScreening\frmAddScreening.Designer.cs">
+      <DependentUpon>frmAddScreening.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBookTicket\frmBookTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +100,12 @@
     <Compile Include="FormUser\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormYourTicket\frmMyTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYourTicket\frmMyTicket.Designer.cs">
+      <DependentUpon>frmMyTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messenger.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -100,6 +114,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddScreening\frmAddScreening.resx">
+      <DependentUpon>frmAddScreening.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBookTicket\frmBookTicket.resx">
       <DependentUpon>frmBookTicket.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYourTicket\frmMyTicket.resx">
+      <DependentUpon>frmMyTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
