@@ -49,7 +49,7 @@ namespace movie_ticket_booking_system.FormLogIn
                     if (!string.IsNullOrEmpty(password) && _userBUS.AccountDoesExist(account))
                     {
                         _userBUS.UpdateAccountLastSeen(phone);
-
+                        _parentForm.LoggedInUser = _userBUS.GetUserByPhone(phone);
                         _parentForm.DialogResult = _userBUS.IsAdmin(phone) ? DialogResult.Yes : DialogResult.OK;
                         _parentForm.Close();
                     }
@@ -79,8 +79,9 @@ namespace movie_ticket_booking_system.FormLogIn
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            if (Messenger.Confirm("Are you sure you want to quit logging in?") == DialogResult.Yes)
-                Application.Exit();
+            if (Messenger.Confirm("Are you sure you want to quit logging in?") != DialogResult.Yes) return;
+            _parentForm.DialogResult = DialogResult.Cancel;
+            _parentForm.Close();
         }
     }
 }

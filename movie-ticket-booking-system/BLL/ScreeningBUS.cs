@@ -47,19 +47,12 @@ namespace movie_ticket_booking_system.BLL
             return showtime;
         }
 
-        public List<string> GetScreeningAndAuditoriumByShowtime(string date, string time)
+        public string GetScreeningIdByShowtime(string date, string time)
         {
-            var result = new List<string>();
             foreach (var screening in _screenings)
-            {
-                if (!screening.Date.Substring(0, 9).Equals(date) || !screening.Time.Equals(time)) continue;
-
-                result.Add(screening.ScreeningId);
-                result.Add(screening.AuditoriumId);
-                break;
-            }
-
-            return result;
+                if (screening.Date.Substring(0, 9) == date && screening.Time == time)
+                    return screening.ScreeningId;
+            return string.Empty;
         }
     }
 }

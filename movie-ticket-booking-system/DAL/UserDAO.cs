@@ -58,6 +58,16 @@ namespace movie_ticket_booking_system.DAL
             return _dbConnection.ExecuteLoadQuery("usp_GetUserRole", paras, CommandType.StoredProcedure);
         }
 
+        public DataTable GetUserByPhone(string phone)
+        {
+            var paras = new SqlParameter[1];
+            paras[0] = new SqlParameter("@phone", SqlDbType.VarChar)
+            {
+                Value = phone
+            };
+            return _dbConnection.ExecuteLoadQuery("usp_GetUserByPhone", paras, CommandType.StoredProcedure);
+        }
+
         public void CreateUserAccount(User user, string password)
         {
             var paras = new SqlParameter[7];

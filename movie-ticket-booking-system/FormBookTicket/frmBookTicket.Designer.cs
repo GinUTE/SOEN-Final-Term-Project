@@ -37,7 +37,9 @@ namespace movie_ticket_booking_system.FormBookTicket
             this.lblMessage = new System.Windows.Forms.Label();
             this.tlpSeat = new System.Windows.Forms.TableLayoutPanel();
             this.pnlScreeningInfo = new System.Windows.Forms.Panel();
+            this.btnBook = new System.Windows.Forms.Button();
             this.pnlShowtime.SuspendLayout();
+            this.pnlScreeningInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpTime
@@ -123,6 +125,7 @@ namespace movie_ticket_booking_system.FormBookTicket
             // 
             // pnlScreeningInfo
             // 
+            this.pnlScreeningInfo.Controls.Add(this.btnBook);
             this.pnlScreeningInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlScreeningInfo.Location = new System.Drawing.Point(0, 483);
             this.pnlScreeningInfo.Margin = new System.Windows.Forms.Padding(0);
@@ -130,6 +133,17 @@ namespace movie_ticket_booking_system.FormBookTicket
             this.pnlScreeningInfo.Size = new System.Drawing.Size(882, 70);
             this.pnlScreeningInfo.TabIndex = 3;
             this.pnlScreeningInfo.Visible = false;
+            // 
+            // btnBook
+            // 
+            this.btnBook.AutoSize = true;
+            this.btnBook.Location = new System.Drawing.Point(795, 25);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(75, 33);
+            this.btnBook.TabIndex = 0;
+            this.btnBook.Text = "Book";
+            this.btnBook.UseVisualStyleBackColor = true;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // frmBookTicket
             // 
@@ -146,6 +160,8 @@ namespace movie_ticket_booking_system.FormBookTicket
             this.Name = "frmBookTicket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlShowtime.ResumeLayout(false);
+            this.pnlScreeningInfo.ResumeLayout(false);
+            this.pnlScreeningInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,5 +174,6 @@ namespace movie_ticket_booking_system.FormBookTicket
         private Label lblMessage;
         private TableLayoutPanel tlpSeat;
         private Panel pnlScreeningInfo;
+        private Button btnBook;
     }
 }

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using movie_ticket_booking_system.FormMovie;
 using movie_ticket_booking_system.FormUser;
+using movie_ticket_booking_system.Models;
 
 namespace movie_ticket_booking_system.FormDashboard
 {
@@ -13,9 +14,12 @@ namespace movie_ticket_booking_system.FormDashboard
         {
             InitializeComponent();
 
-            btnAdmin.Visible = false;
+            btnAdmin.Visible = pnlAdminSubmenu.Visible = false;
+            btnUser.Visible = pnlUserSubmenu.Visible = false;
             btnNowShowing_Click(new object(), EventArgs.Empty);
         }
+
+        public User LoggedInUser { get; set; }
 
         public void LoadChildForm(Form childForm)
         {
@@ -37,6 +41,16 @@ namespace movie_ticket_booking_system.FormDashboard
             pnlMoviesSubmenu.Visible = !pnlMoviesSubmenu.Visible;
         }
 
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            pnlAdminSubmenu.Visible = !pnlAdminSubmenu.Visible;
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            pnlUserSubmenu.Visible = !pnlUserSubmenu.Visible;
+        }
+
         private void btnNowShowing_Click(object sender, EventArgs e)
         {
             if (lblHeader.Text == btnNowShowing.Text.ToUpper()) return;
@@ -56,9 +70,11 @@ namespace movie_ticket_booking_system.FormDashboard
             using (var frmUser = new frmUser())
             {
                 var dialogResult = frmUser.ShowDialog();
-                btnAdmin.Visible = dialogResult == DialogResult.Yes;
-                if (dialogResult == DialogResult.Yes || dialogResult == DialogResult.OK)
-                    btnLogIn.Visible = false;
+                if (dialogResult != DialogResult.Yes && dialogResult != DialogResult.OK) return;
+                btnUser.Visible = pnlUserSubmenu.Visible = true;
+                btnAdmin.Visible = pnlAdminSubmenu.Visible = dialogResult == DialogResult.Yes;
+                ((frmMovie)_activeForm).LoggedInUser = frmUser.LoggedInUser;
+                btnLogIn.Visible = false;
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace movie_ticket_booking_system.Models
 {
-    internal class Seat
+    public class Seat
     {
         private readonly string[] _seatCategoryName = { "Ghế thường", "Ghế VIP" };
         public string SeatId { get; set; }

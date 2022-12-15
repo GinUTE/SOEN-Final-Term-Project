@@ -1,6 +1,6 @@
 ﻿namespace movie_ticket_booking_system.Models
 {
-    internal class User
+    public class User
     {
         public User(string phone, string fullName, string dateOfBirth, bool isMale, string email, string city)
         {

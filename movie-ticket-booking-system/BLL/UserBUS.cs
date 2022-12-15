@@ -36,6 +36,18 @@ namespace movie_ticket_booking_system.BLL
                 .Any(row => (row as DataRow)?["role"].ToString() == "admin");
         }
 
+        public User GetUserByPhone(string phone)
+        {
+            var dt = _userDAO.GetUserByPhone(phone);
+            var user = new User(dt.Rows[0][0].ToString(),
+                dt.Rows[0][1].ToString(),
+                isMale: Convert.ToBoolean(dt.Rows[0][2]),
+                dateOfBirth: dt.Rows[0][3].ToString(),
+                email: dt.Rows[0][4].ToString(),
+                city: dt.Rows[0][5].ToString());
+            return user;
+        }
+
         public void CreateUserAccount(User user, string password)
         {
             _userDAO.CreateUserAccount(user, password);

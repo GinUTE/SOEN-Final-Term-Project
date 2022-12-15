@@ -1,6 +1,6 @@
 ﻿namespace movie_ticket_booking_system.Models
 {
-    internal class Movie
+    public class Movie
     {
         public string MovieId { get; set; }
         public string Title { get; set; }

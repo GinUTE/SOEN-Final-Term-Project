@@ -117,8 +117,9 @@ namespace movie_ticket_booking_system.FormCreateAccount
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            if (Messenger.Confirm("Are you sure you want to quit creating an account?") == DialogResult.Yes)
-                Application.Exit();
+            if (Messenger.Confirm("Are you sure you want to quit creating an account?") != DialogResult.Yes) return;
+            _parentForm.DialogResult = DialogResult.Cancel;
+            _parentForm.Close();
         }
     }
 }

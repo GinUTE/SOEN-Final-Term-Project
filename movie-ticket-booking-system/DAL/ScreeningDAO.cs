@@ -20,7 +20,6 @@ namespace movie_ticket_booking_system.DAL
             {
                 Value = movieId
             };
-
             return _dbConnection.ExecuteLoadQuery("usp_GetScreeningByMovieId", paras, CommandType.StoredProcedure);
         }
     }

@@ -22,6 +22,8 @@ namespace movie_ticket_booking_system.FormMovie
             _showComingSoon = showComingSoon;
         }
 
+        public User LoggedInUser { get; set; }
+
         private void AddMoviePanel(Movie movie)
         {
             var pnl = new Panel();
@@ -127,10 +129,16 @@ namespace movie_ticket_booking_system.FormMovie
             Messenger.Notification(pic?.Name);
         }
 
-        private static void Button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
+            if (LoggedInUser == null)
+            {
+                Messenger.Notification("Please log in first to book tickets");
+                return;
+            }
+
             var btn = sender as Button;
-            using (var frmBookTicket = new frmBookTicket(btn?.Name))
+            using (var frmBookTicket = new frmBookTicket(LoggedInUser, btn?.Name))
             {
                 frmBookTicket.ShowDialog();
             }

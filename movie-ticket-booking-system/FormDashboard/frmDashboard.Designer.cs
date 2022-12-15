@@ -38,16 +38,28 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnComingSoon = new System.Windows.Forms.Button();
             this.btnNowShowing = new System.Windows.Forms.Button();
             this.btnMovies = new System.Windows.Forms.Button();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlChildForm = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pnlAdminSubmenu = new System.Windows.Forms.Panel();
+            this.btnScreening = new System.Windows.Forms.Button();
+            this.btnMovie = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.pnlUserSubmenu = new System.Windows.Forms.Panel();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.btnYourTicket = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
             this.pnlMoviesSubmenu.SuspendLayout();
+            this.pnlAdminSubmenu.SuspendLayout();
+            this.pnlUserSubmenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
+            this.pnlSidebar.Controls.Add(this.pnlUserSubmenu);
+            this.pnlSidebar.Controls.Add(this.btnUser);
+            this.pnlSidebar.Controls.Add(this.pnlAdminSubmenu);
             this.pnlSidebar.Controls.Add(this.btnAdmin);
             this.pnlSidebar.Controls.Add(this.btnLogIn);
             this.pnlSidebar.Controls.Add(this.pnlMoviesSubmenu);
@@ -75,6 +87,7 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnAdmin.Text = "Admin";
             this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnLogIn
             // 
@@ -115,9 +128,11 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnComingSoon.Location = new System.Drawing.Point(0, 50);
             this.btnComingSoon.Margin = new System.Windows.Forms.Padding(0);
             this.btnComingSoon.Name = "btnComingSoon";
+            this.btnComingSoon.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnComingSoon.Size = new System.Drawing.Size(200, 50);
             this.btnComingSoon.TabIndex = 1;
             this.btnComingSoon.Text = "Coming Soon";
+            this.btnComingSoon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnComingSoon.UseVisualStyleBackColor = true;
             this.btnComingSoon.Click += new System.EventHandler(this.btnComingSoon_Click);
             // 
@@ -131,9 +146,11 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnNowShowing.Location = new System.Drawing.Point(0, 0);
             this.btnNowShowing.Margin = new System.Windows.Forms.Padding(0);
             this.btnNowShowing.Name = "btnNowShowing";
+            this.btnNowShowing.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnNowShowing.Size = new System.Drawing.Size(200, 50);
             this.btnNowShowing.TabIndex = 0;
             this.btnNowShowing.Text = "Now Showing";
+            this.btnNowShowing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNowShowing.UseVisualStyleBackColor = true;
             this.btnNowShowing.Click += new System.EventHandler(this.btnNowShowing_Click);
             // 
@@ -154,6 +171,15 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnMovies.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMovies.UseVisualStyleBackColor = true;
             this.btnMovies.Click += new System.EventHandler(this.btnMovies_Click);
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(200, 200);
+            this.pnlLogo.TabIndex = 4;
             // 
             // pnlChildForm
             // 
@@ -177,13 +203,113 @@ namespace movie_ticket_booking_system.FormDashboard
             this.lblHeader.Text = "HEADER";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlLogo
+            // pnlAdminSubmenu
             // 
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(200, 200);
-            this.pnlLogo.TabIndex = 4;
+            this.pnlAdminSubmenu.Controls.Add(this.btnScreening);
+            this.pnlAdminSubmenu.Controls.Add(this.btnMovie);
+            this.pnlAdminSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAdminSubmenu.Location = new System.Drawing.Point(0, 400);
+            this.pnlAdminSubmenu.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlAdminSubmenu.Name = "pnlAdminSubmenu";
+            this.pnlAdminSubmenu.Size = new System.Drawing.Size(200, 100);
+            this.pnlAdminSubmenu.TabIndex = 5;
+            // 
+            // btnScreening
+            // 
+            this.btnScreening.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnScreening.FlatAppearance.BorderSize = 0;
+            this.btnScreening.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScreening.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScreening.ForeColor = System.Drawing.Color.White;
+            this.btnScreening.Location = new System.Drawing.Point(0, 50);
+            this.btnScreening.Margin = new System.Windows.Forms.Padding(0);
+            this.btnScreening.Name = "btnScreening";
+            this.btnScreening.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnScreening.Size = new System.Drawing.Size(200, 50);
+            this.btnScreening.TabIndex = 1;
+            this.btnScreening.Text = "Screenings";
+            this.btnScreening.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScreening.UseVisualStyleBackColor = true;
+            // 
+            // btnMovie
+            // 
+            this.btnMovie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMovie.FlatAppearance.BorderSize = 0;
+            this.btnMovie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovie.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMovie.ForeColor = System.Drawing.Color.White;
+            this.btnMovie.Location = new System.Drawing.Point(0, 0);
+            this.btnMovie.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMovie.Name = "btnMovie";
+            this.btnMovie.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnMovie.Size = new System.Drawing.Size(200, 50);
+            this.btnMovie.TabIndex = 0;
+            this.btnMovie.Text = "Movies";
+            this.btnMovie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMovie.UseVisualStyleBackColor = true;
+            // 
+            // btnUser
+            // 
+            this.btnUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUser.FlatAppearance.BorderSize = 0;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.ForeColor = System.Drawing.Color.White;
+            this.btnUser.Location = new System.Drawing.Point(0, 500);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(200, 50);
+            this.btnUser.TabIndex = 4;
+            this.btnUser.Text = "User";
+            this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // pnlUserSubmenu
+            // 
+            this.pnlUserSubmenu.Controls.Add(this.btnProfile);
+            this.pnlUserSubmenu.Controls.Add(this.btnYourTicket);
+            this.pnlUserSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlUserSubmenu.Location = new System.Drawing.Point(0, 550);
+            this.pnlUserSubmenu.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlUserSubmenu.Name = "pnlUserSubmenu";
+            this.pnlUserSubmenu.Size = new System.Drawing.Size(200, 100);
+            this.pnlUserSubmenu.TabIndex = 5;
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnProfile.FlatAppearance.BorderSize = 0;
+            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfile.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfile.ForeColor = System.Drawing.Color.White;
+            this.btnProfile.Location = new System.Drawing.Point(0, 50);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(0);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProfile.Size = new System.Drawing.Size(200, 50);
+            this.btnProfile.TabIndex = 1;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.UseVisualStyleBackColor = true;
+            // 
+            // btnYourTicket
+            // 
+            this.btnYourTicket.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnYourTicket.FlatAppearance.BorderSize = 0;
+            this.btnYourTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYourTicket.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYourTicket.ForeColor = System.Drawing.Color.White;
+            this.btnYourTicket.Location = new System.Drawing.Point(0, 0);
+            this.btnYourTicket.Margin = new System.Windows.Forms.Padding(0);
+            this.btnYourTicket.Name = "btnYourTicket";
+            this.btnYourTicket.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnYourTicket.Size = new System.Drawing.Size(200, 50);
+            this.btnYourTicket.TabIndex = 0;
+            this.btnYourTicket.Text = "Your Tickets";
+            this.btnYourTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnYourTicket.UseVisualStyleBackColor = true;
             // 
             // frmDashboard
             // 
@@ -202,6 +328,8 @@ namespace movie_ticket_booking_system.FormDashboard
             this.Text = "Dashboard";
             this.pnlSidebar.ResumeLayout(false);
             this.pnlMoviesSubmenu.ResumeLayout(false);
+            this.pnlAdminSubmenu.ResumeLayout(false);
+            this.pnlUserSubmenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -218,5 +346,12 @@ namespace movie_ticket_booking_system.FormDashboard
         private Button btnLogIn;
         private Button btnAdmin;
         private Panel pnlLogo;
+        private Panel pnlAdminSubmenu;
+        private Button btnScreening;
+        private Button btnMovie;
+        private Panel pnlUserSubmenu;
+        private Button btnProfile;
+        private Button btnYourTicket;
+        private Button btnUser;
     }
 }

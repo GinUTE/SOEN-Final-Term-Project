@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using movie_ticket_booking_system.FormLogIn;
+using movie_ticket_booking_system.Models;
 
 namespace movie_ticket_booking_system.FormUser
 {
@@ -12,6 +13,8 @@ namespace movie_ticket_booking_system.FormUser
 
             LoadChildForm(new frmLogIn(this));
         }
+
+        internal User LoggedInUser { get; set; }
 
         public void LoadChildForm(Form childForm)
         {

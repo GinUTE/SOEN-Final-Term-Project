@@ -39,9 +39,15 @@ namespace movie_ticket_booking_system.BLL
             return (from DataRow row in dt.Rows select MapRowToModel<T>(row, properties)).ToList();
         }
 
-        public IList<Seat> GetSeatByScreeningAndAuditorium(string screeningId, string auditoriumId)
+        public IList<Seat> GetSeatByScreeningId(string screeningId)
         {
-            return ToList<Seat>(_seatDAO.GetSeatByScreeningAndAuditorium(screeningId, auditoriumId));
+            return ToList<Seat>(_seatDAO.GetSeatByScreeningId(screeningId));
+        }
+
+        public void AddReservation(string phone, string screeningId, List<string> selectedSeat)
+        {
+            _seatDAO.AddReservation(phone, screeningId);
+            foreach (var seat in selectedSeat) _seatDAO.AddReservedSeat(seat);
         }
     }
 }

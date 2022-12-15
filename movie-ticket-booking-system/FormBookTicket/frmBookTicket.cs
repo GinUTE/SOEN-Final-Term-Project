@@ -5,23 +5,29 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using movie_ticket_booking_system.BLL;
+using movie_ticket_booking_system.Models;
 
 namespace movie_ticket_booking_system.FormBookTicket
 {
     public partial class frmBookTicket : Form
     {
+        private readonly User _loggedInUser;
         private readonly ScreeningBUS _screeningBUS;
         private readonly SeatBUS _seatBUS;
+        private readonly List<string> _selectedSeat;
         private readonly NameValueCollection _showtime;
         private string _currentDate;
+        private string _currentScreeningId;
         private string _currentTime;
 
-        public frmBookTicket(string movieId)
+        public frmBookTicket(User loggedInUser, string movieId)
         {
             InitializeComponent();
 
             _screeningBUS = new ScreeningBUS(movieId);
             _seatBUS = new SeatBUS();
+            _selectedSeat = new List<string>();
+            _loggedInUser = loggedInUser;
             try
             {
                 _showtime = _screeningBUS.GetShowtimeByMovieId();
@@ -51,6 +57,7 @@ namespace movie_ticket_booking_system.FormBookTicket
                     TextAlign = ContentAlignment.MiddleCenter,
                     Text = date
                 };
+
                 lbl.Click += LabelDate_Click;
                 tlpDate.Controls.Add(lbl);
             }
@@ -68,6 +75,7 @@ namespace movie_ticket_booking_system.FormBookTicket
                     TextAlign = ContentAlignment.MiddleCenter,
                     Text = time
                 };
+
                 lbl.Click += LabelTime_Click;
                 tlpTime.Controls.Add(lbl);
             }
@@ -92,6 +100,8 @@ namespace movie_ticket_booking_system.FormBookTicket
             AddTimePanel(_showtime[_currentDate]);
 
             tlpSeat.Controls.Clear();
+            _selectedSeat.Clear();
+            btnBook.Visible = false;
             tlpSeat.Visible = pnlScreeningInfo.Visible = false;
         }
 
@@ -111,43 +121,102 @@ namespace movie_ticket_booking_system.FormBookTicket
             }
 
             tlpSeat.Controls.Clear();
-            tlpSeat.Visible = pnlScreeningInfo.Visible = true;
-
+            _selectedSeat.Clear();
+            btnBook.Visible = false;
             AddSeatPanel();
+
+            tlpSeat.Visible = pnlScreeningInfo.Visible = true;
         }
 
         private void AddSeatPanel()
         {
-            var result = _screeningBUS.GetScreeningAndAuditoriumByShowtime(_currentDate, _currentTime);
-            if (result.Count != 2) return;
-
-            var screeningId = result[0];
-            var auditoriumId = result[1];
-            var seats = _seatBUS.GetSeatByScreeningAndAuditorium(screeningId, auditoriumId);
-
-            lblMessage.Text = @"Please select your preferred seats";
-
-            foreach (var seat in seats)
+            try
             {
-                var lbl = new Label
+                _currentScreeningId = _screeningBUS.GetScreeningIdByShowtime(_currentDate, _currentTime);
+                AddSeatByScreeningId();
+                lblMessage.Text = @"Please select your preferred seats";
+            }
+            catch (SqlException ex)
+            {
+                Messenger.Error("Unexpected SQL related error: " + ex.Number);
+            }
+            catch (Exception ex)
+            {
+                Messenger.Error("Unexpected runtime error: " + ex);
+            }
+        }
+
+        private void AddSeatByScreeningId()
+        {
+            try
+            {
+                tlpSeat.Controls.Clear();
+                var seats = _seatBUS.GetSeatByScreeningId(_currentScreeningId);
+                foreach (var seat in seats)
                 {
-                    BorderStyle = BorderStyle.FixedSingle,
-                    AutoSize = true,
-                    Dock = DockStyle.Top,
-                    Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Text = seat.Location(),
-                    Margin = new Padding(3),
-                    Name = seat.SeatId,
-                    Enabled = !seat.IsReserved
-                };
-                lbl.Click += LabelSeat_Click;
-                tlpSeat.Controls.Add(lbl);
+                    var lbl = new Label
+                    {
+                        BorderStyle = BorderStyle.FixedSingle,
+                        AutoSize = true,
+                        Dock = DockStyle.Top,
+                        Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Text = seat.Location(),
+                        Margin = new Padding(3),
+                        Name = seat.SeatId,
+                        Enabled = !seat.IsReserved,
+                        ForeColor = seat.SeatCategoryId.Equals("2") ? Color.Red : Color.Green
+                    };
+
+                    lbl.Click += LabelSeat_Click;
+                    tlpSeat.Controls.Add(lbl);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Messenger.Error("Unexpected SQL related error: " + ex.Number);
+            }
+            catch (Exception ex)
+            {
+                Messenger.Error("Unexpected runtime error: " + ex);
             }
         }
 
         private void LabelSeat_Click(object sender, EventArgs e)
         {
+            if (!(sender is Label lbl)) return;
+
+            if (lbl.BackColor != DefaultBackColor)
+            {
+                _selectedSeat.Remove(lbl.Name);
+                lbl.BackColor = DefaultBackColor;
+                if (_selectedSeat.Count == 0)
+                    btnBook.Visible = false;
+            }
+            else
+            {
+                lbl.BackColor = Color.FromArgb(30, 46, 61);
+                _selectedSeat.Add(lbl.Name);
+                btnBook.Visible = true;
+            }
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _seatBUS.AddReservation(_loggedInUser.Phone, _currentScreeningId, _selectedSeat);
+                AddSeatByScreeningId();
+                Messenger.Notification("Seats reserved!");
+            }
+            catch (SqlException ex)
+            {
+                Messenger.Error("Unexpected SQL related error: " + ex.Number);
+            }
+            catch (Exception ex)
+            {
+                Messenger.Error("Unexpected runtime error: " + ex);
+            }
         }
     }
 }
