@@ -29,7 +29,6 @@ namespace movie_ticket_booking_system.BLL
                 if (property.Name == "Thumbnail")
                     property.SetValue(model, (byte[])row[ConvertToUnderscoreCase(property.Name)], null);
                 else property.SetValue(model, row[ConvertToUnderscoreCase(property.Name)].ToString(), null);
-
             return model;
         }
 

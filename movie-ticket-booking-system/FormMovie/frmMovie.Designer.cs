@@ -1,11 +1,14 @@
-﻿namespace movie_ticket_booking_system.FormMovie
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace movie_ticket_booking_system.FormMovie
 {
     partial class frmMovie
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -48,7 +51,7 @@
             this.tlpNowShowing.Size = new System.Drawing.Size(1500, 900);
             this.tlpNowShowing.TabIndex = 0;
             // 
-            // frmScreening
+            // frmMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -58,7 +61,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmScreening";
+            this.Name = "frmMovie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Now Showing";
             this.Load += new System.EventHandler(this.frmMovie_Load);
@@ -68,6 +71,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tlpNowShowing;
+        private TableLayoutPanel tlpNowShowing;
     }
 }

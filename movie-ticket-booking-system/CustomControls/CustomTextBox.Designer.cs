@@ -1,11 +1,14 @@
-﻿namespace movie_ticket_booking_system.CustomControls
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace movie_ticket_booking_system.CustomControls
 {
     partial class CustomTextBox
     {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -65,6 +68,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtCustom;
+        private TextBox txtCustom;
     }
 }

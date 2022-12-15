@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -113,7 +114,7 @@ namespace movie_ticket_booking_system.FormMovie
             btnBook.Location = new Point(350, 575);
             btnBook.Name = movie.MovieId;
             btnBook.Size = new Size(85, 35);
-            btnBook.TabIndex = 0;
+            btnBook.TabIndex = 5;
             btnBook.Text = @"BOOK";
             btnBook.Click += Button_Click;
 
@@ -137,17 +138,28 @@ namespace movie_ticket_booking_system.FormMovie
 
         private void frmMovie_Load(object sender, EventArgs e)
         {
-            if (_showComingSoon)
+            try
             {
-                var comingSoon = _movieBUS.GetComingSoon();
-                if (comingSoon == null) return;
-                foreach (var movie in comingSoon) AddMoviePanel(movie);
+                if (_showComingSoon)
+                {
+                    var comingSoon = _movieBUS.GetComingSoon();
+                    if (comingSoon == null) return;
+                    foreach (var movie in comingSoon) AddMoviePanel(movie);
+                }
+                else
+                {
+                    var nowShowing = _movieBUS.GetNowShowing();
+                    if (nowShowing == null) return;
+                    foreach (var movie in nowShowing) AddMoviePanel(movie);
+                }
             }
-            else
+            catch (SqlException ex)
             {
-                var nowShowing = _movieBUS.GetNowShowing();
-                if (nowShowing == null) return;
-                foreach (var movie in nowShowing) AddMoviePanel(movie);
+                Messenger.Error("Unexpected SQL related error: " + ex.Number);
+            }
+            catch (Exception ex)
+            {
+                Messenger.Error("Unexpected runtime error: " + ex);
             }
         }
     }

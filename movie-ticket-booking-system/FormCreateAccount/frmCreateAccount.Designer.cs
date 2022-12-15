@@ -1,11 +1,15 @@
-﻿namespace movie_ticket_booking_system.FormCreateAccount
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+using movie_ticket_booking_system.CustomControls;
+
+namespace movie_ticket_booking_system.FormCreateAccount
 {
     partial class frmCreateAccount
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -436,27 +440,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblGetStarted;
-        private System.Windows.Forms.Label lblPhone;
-        private CustomControls.CustomTextBox txtPhone;
-        private System.Windows.Forms.Label lblRegisteredPhone;
-        private System.Windows.Forms.Label lblFullName;
-        private CustomControls.CustomTextBox txtFullName;
-        private System.Windows.Forms.CheckBox chkMale;
-        private System.Windows.Forms.Label lblDateOfBirth;
-        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
-        private System.Windows.Forms.Label lblEmail;
-        private CustomControls.CustomTextBox txtEmail;
-        private System.Windows.Forms.ComboBox cmbCity;
-        private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.LinkLabel llbLogIn;
-        private System.Windows.Forms.Label lblPassword;
-        private CustomControls.CustomTextBox txtPassword;
-        private System.Windows.Forms.Label lblConfirmPassword;
-        private CustomControls.CustomTextBox txtConfirmPassword;
-        private System.Windows.Forms.Label lblUnmatchedPassword;
-        private System.Windows.Forms.CheckBox chkShowPassword;
+        private Label lblGetStarted;
+        private Label lblPhone;
+        private CustomTextBox txtPhone;
+        private Label lblRegisteredPhone;
+        private Label lblFullName;
+        private CustomTextBox txtFullName;
+        private CheckBox chkMale;
+        private Label lblDateOfBirth;
+        private DateTimePicker dtpDateOfBirth;
+        private Label lblEmail;
+        private CustomTextBox txtEmail;
+        private ComboBox cmbCity;
+        private Label lblCity;
+        private Button btnSignUp;
+        private Button btnQuit;
+        private LinkLabel llbLogIn;
+        private Label lblPassword;
+        private CustomTextBox txtPassword;
+        private Label lblConfirmPassword;
+        private CustomTextBox txtConfirmPassword;
+        private Label lblUnmatchedPassword;
+        private CheckBox chkShowPassword;
     }
 }

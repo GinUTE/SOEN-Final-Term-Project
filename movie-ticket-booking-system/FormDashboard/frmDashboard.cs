@@ -57,6 +57,8 @@ namespace movie_ticket_booking_system.FormDashboard
             {
                 var dialogResult = frmUser.ShowDialog();
                 btnAdmin.Visible = dialogResult == DialogResult.Yes;
+                if (dialogResult == DialogResult.Yes || dialogResult == DialogResult.OK)
+                    btnLogIn.Visible = false;
             }
         }
     }

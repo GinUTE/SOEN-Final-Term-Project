@@ -1,11 +1,14 @@
-﻿namespace movie_ticket_booking_system.FormUser
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace movie_ticket_booking_system.FormUser
 {
     partial class frmUser
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -83,8 +86,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlChildForm;
-        private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.Panel pnlLogo;
+        private Panel pnlChildForm;
+        private PictureBox picLogo;
+        private Panel pnlLogo;
     }
 }

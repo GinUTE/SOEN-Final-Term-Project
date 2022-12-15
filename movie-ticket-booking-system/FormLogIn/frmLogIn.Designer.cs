@@ -1,11 +1,15 @@
-﻿namespace movie_ticket_booking_system.FormLogIn
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+using movie_ticket_booking_system.CustomControls;
+
+namespace movie_ticket_booking_system.FormLogIn
 {
     partial class frmLogIn
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -211,16 +215,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label lblPhone;
-        private CustomControls.CustomTextBox txtPhone;
-        private System.Windows.Forms.Label lblUnregisteredPhone;
-        private System.Windows.Forms.Label lblPassword;
-        private CustomControls.CustomTextBox txtPassword;
-        private System.Windows.Forms.Label lblWrongPassword;
-        private System.Windows.Forms.CheckBox chkShowPassword;
-        private System.Windows.Forms.Button btnLogIn;
-        private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.LinkLabel llbCreateAccount;
+        private Label lblWelcome;
+        private Label lblPhone;
+        private CustomTextBox txtPhone;
+        private Label lblUnregisteredPhone;
+        private Label lblPassword;
+        private CustomTextBox txtPassword;
+        private Label lblWrongPassword;
+        private CheckBox chkShowPassword;
+        private Button btnLogIn;
+        private Button btnQuit;
+        private LinkLabel llbCreateAccount;
     }
 }

@@ -35,15 +35,26 @@ namespace movie_ticket_booking_system.FormCreateAccount
 
         private void txtPhone_Leave(object sender, EventArgs e)
         {
-            lblRegisteredPhone.Visible = false;
-            txtPhone.BorderFocusedColor = Color.Blue;
+            try
+            {
+                lblRegisteredPhone.Visible = false;
+                txtPhone.BorderFocusedColor = Color.Blue;
 
-            var phone = txtPhone.CustomText.Trim();
-            if (string.IsNullOrEmpty(phone) || !_userBUS.PhoneDoesExist(phone)) return;
+                var phone = txtPhone.CustomText.Trim();
+                if (string.IsNullOrEmpty(phone) || !_userBUS.PhoneDoesExist(phone)) return;
 
-            lblRegisteredPhone.Visible = true;
-            txtPhone.BorderFocusedColor = Color.Red;
-            txtPhone.Focus();
+                lblRegisteredPhone.Visible = true;
+                txtPhone.BorderFocusedColor = Color.Red;
+                txtPhone.Focus();
+            }
+            catch (SqlException ex)
+            {
+                Messenger.Error("Unexpected SQL related error: " + ex.Number);
+            }
+            catch (Exception ex)
+            {
+                Messenger.Error("Unexpected runtime error: " + ex);
+            }
         }
 
         private bool IsAllFilledIn()
