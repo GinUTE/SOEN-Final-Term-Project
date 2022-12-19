@@ -115,7 +115,6 @@ namespace movie_ticket_booking_system.FormDashboard
             this.btnMyTicket.Text = "My Tickets";
             this.btnMyTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMyTicket.UseVisualStyleBackColor = true;
-            this.btnMyTicket.Click += new System.EventHandler(this.btnMyTicket_Click);
             // 
             // btnUser
             // 
